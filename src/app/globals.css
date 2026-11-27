@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/*
+ * LexConv design tokens: "frost and signal".
+ * A cool, clean base taken from the world of cold storage. One signal colour
+ * is kept for the single thing that matters: a reading leaving the safe range.
+ */
+:root {
+  --bg: #f2f5f7;
+  --surface: #ffffff;
+  --ink: #0f2230;
+  --muted: #4a5b68;
+  --line: #d3dde3;
+  --accent: #1e5f8c;
+  --accent-ink: #ffffff;
+  --band: #dcebf2;
+  --signal: #b4410f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1a22;
+    --surface: #13232d;
+    --ink: #e7eef2;
+    --muted: #a3b4bf;
+    --line: #24394a;
+    --accent: #7db9de;
+    --accent-ink: #0d1a22;
+    --band: #163243;
+    --signal: #ff8a4c;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-band: var(--band);
+  --color-signal: var(--signal);
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--band);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.875rem;
+    padding: 0.625rem 1.125rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in srgb, var(--accent) 86%, var(--ink));
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+  }
+
+  .link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  .link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Long-form legal text */
+  .legal h2 {
+    font-size: 1.3125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal p,
+  .legal ul,
+  .legal ol {
+    margin-bottom: 1rem;
+  }
+
+  .legal ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .legal ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+
+  .legal li {
+    margin-bottom: 0.375rem;
+  }
+
+  .legal a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+  }
+
+  .legal strong {
+    font-weight: 600;
+  }
+}
+
+/* Hero trace: draws once on load, left to right. */
+@keyframes trace-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes alert-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.trace-svg {
+  animation: trace-reveal 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.2s both;
+}
+
+.trace-alert {
+  transform: translate(-50%, -50%);
+  animation: alert-in 0.35s ease-out 1.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-svg,
+  .trace-alert {
+    animation: none;
+  }
+  .btn {
+    transition: none;
+  }
+}
