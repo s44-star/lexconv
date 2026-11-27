@@ -10,14 +10,14 @@ const DEFAULT_FROM = "LexConv website <website@lexconv.com>";
 
 /**
  * Plain HTML form POST target. Works without JavaScript:
- * success → 303 to /contact/sent, failure → 303 back to /contact?error=… .
+ * success → 303 to /contact/sent, failure → 303 to /contact/error/<code>.
  */
 function redirectTo(request: NextRequest, path: string) {
   return NextResponse.redirect(new URL(path, request.url), 303);
 }
 
 function fail(request: NextRequest, code: ContactErrorCode) {
-  return redirectTo(request, `/contact?error=${code}#form`);
+  return redirectTo(request, `/contact/error/${code}#form`);
 }
 
 function sameOrigin(request: NextRequest): boolean {
