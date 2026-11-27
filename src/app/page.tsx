@@ -50,7 +50,7 @@ export default function HomePage() {
       />
 
       <section className="container-page pt-14 sm:pt-20">
-        <h1 className="max-w-[17ch] text-[2.375rem] font-semibold leading-[1.05] sm:text-[3.5rem] lg:text-[4.25rem]">
+        <h1 className="max-w-[17ch] text-[2.375rem] lg:max-w-[21ch] font-semibold leading-[1.05] sm:text-[3.5rem] lg:text-[4.25rem]">
           We build and run software and hardware businesses.
         </h1>
         <p className="mt-6 max-w-[60ch] text-lg text-muted sm:text-xl">
