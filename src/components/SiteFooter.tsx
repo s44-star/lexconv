@@ -10,12 +10,8 @@ export function SiteFooter() {
         <div className="space-y-4">
           <p className="font-semibold">LexConv</p>
           <p className="max-w-md text-muted">
-            {show(company.uk.legalName)} is registered in {show(company.uk.registeredIn)}, company
-            number {show(company.uk.companyNumber)}. Registered office: {show(company.uk.registeredOffice)}.
-          </p>
-          <p className="max-w-md text-muted">
-            In India, LexConv trades through {show(company.india.tradeName)}, a sole proprietorship
-            owned by {company.india.proprietor}. Address: {show(company.india.address)}.
+            {company.tradeName} is {company.legalForm}, owned by {company.proprietor}. Address:{" "}
+            {show(company.address)}.
           </p>
           <p>
             <a className="link" href={`mailto:${company.email}`}>

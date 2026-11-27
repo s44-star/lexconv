@@ -3,7 +3,7 @@
 The LexConv company website. Next.js (App Router) + TypeScript + Tailwind CSS, deployed on Vercel.
 
 - **Deploy and DNS guide (phone-friendly):** see [DEPLOY.md](./DEPLOY.md)
-- **Company and legal details:** `src/content/company.ts`
+- **Business name and address:** `src/content/company.ts`
 - **Products and prices:** `src/content/products.ts`
 - **Page copy:** `src/app/**/page.tsx`
 

@@ -44,18 +44,10 @@ export function LegalPage({ title, intro, path, children }: Props) {
 /** Says who "we" are. Used near the top of each legal page. */
 export function Entities() {
   return (
-    <ul>
-      <li>
-        <strong>{show(company.uk.legalName)}</strong>, a company registered in{" "}
-        {show(company.uk.registeredIn)} with company number {show(company.uk.companyNumber)},
-        whose registered office is at {show(company.uk.registeredOffice)} (&ldquo;LexConv
-        UK&rdquo;). LexConv UK serves customers outside India.
-      </li>
-      <li>
-        <strong>{show(company.india.tradeName)}</strong>, a sole proprietorship in India owned by{" "}
-        {company.india.proprietor}, with its address at {show(company.india.address)}{" "}
-        (&ldquo;LexConv India&rdquo;). LexConv India serves customers in India.
-      </li>
-    </ul>
+    <p>
+      <strong>{company.tradeName}</strong>, {company.legalForm} and owned by {company.proprietor},
+      with its address at {show(company.address)}. We serve customers in India and in other
+      countries.
+    </p>
   );
 }
