@@ -10,33 +10,23 @@ Everything below works in your phone's browser (Chrome or Safari). You don't nee
 
 ---
 
-## Step 1: Fill in your company details (5 minutes)
+## Step 1: Fill in your business address (2 minutes)
 
-The site will not go live until these are filled in. UK law requires your company name, number and registered office on the website, and Razorpay checks them against your KYC.
+LexConv is a sole proprietorship registered in India, and the site says so. The site won't go live until your business address is filled in. Razorpay checks the name and address on the site against your KYC.
 
 1. Open **github.com/s44-star/lexconv** and sign in.
-2. Tap the branch button (it says `main`) and choose **`site-v2`**.
-3. Open the folders `src` → `content` → **`company.ts`**.
-4. Tap the **pencil icon** (Edit this file). On a phone it may be under the **⋯** menu.
-5. Replace each `null` with your details **inside double quotes**. Example:
+2. Open the folders `src` → `content` → **`company.ts`**.
+3. Tap the **pencil icon** (Edit this file). On a phone it may be under the **⋯** menu.
+4. Find `address: null,` and replace it with your address **inside double quotes**, exactly as in your Razorpay KYC:
 
    ```ts
-   uk: {
-     legalName: "LexConv Ltd",
-     companyNumber: "12345678",
-     registeredIn: "England and Wales",
-     registeredOffice: "1 Example Street, London, EC1A 1AA, United Kingdom",
-   },
-   india: {
-     tradeName: "LexConv",
-     proprietor: "Subham Praharaj",
-     address: "Your full business address, Odisha, India",
-     jurisdiction: "Bhubaneswar, Odisha",
-   },
+   address: "Your full business address, Bhawanipatna, Odisha 766001, India",
    ```
 
-   Keep the commas at the end of each line. Use the exact name from Companies House and the exact name and address from your Razorpay KYC.
-6. Tap **Commit changes…**, keep "Commit directly to the site-v2 branch", then tap **Commit changes**.
+   Keep the comma at the end. If your registered trade name isn't exactly `LexConv`, change `tradeName` the same way.
+5. Tap **Commit changes…** and then **Commit changes**.
+
+If you later register a company (for example a Pvt Ltd or OPC), update `company.ts` and the legal pages at that time.
 
 ## Step 2: Turn on the contact form (5 minutes)
 
@@ -77,7 +67,7 @@ Optional variables (the defaults are already right):
 3. Wait for the green tick from Vercel (about 1 minute), then tap **Merge pull request** → **Confirm merge**.
 4. About 1 minute later, lexconv.com shows the new site.
 
-If the company details in Step 1 are still empty, the production build stops with an error that names the missing fields, and the old site stays live. Fill them in on the `main` branch the same way as Step 1. Vercel rebuilds by itself.
+If the address from Step 1 is still empty, the production build stops with an error that names the missing field, and the old site stays live. Fill it in on the `main` branch the same way as Step 1. Vercel rebuilds by itself.
 
 **To undo:** Vercel → **Deployments** → open the previous production deployment → **⋯** → **Instant Rollback**.
 
@@ -151,7 +141,7 @@ You change nothing at Namecheap except adding the single `www` CNAME.
 
 | To change | Edit this file |
 |---|---|
-| Company details | `src/content/company.ts` |
+| Business name and address | `src/content/company.ts` |
 | Products, prices, features | `src/content/products.ts` |
 | Home page text | `src/app/page.tsx` |
 | About page | `src/app/about/page.tsx` |

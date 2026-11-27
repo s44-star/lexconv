@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Entities, LegalPage } from "@/components/LegalPage";
-import { company, show } from "@/content/company";
+import { company } from "@/content/company";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Terms and conditions",
   description:
-    "The terms that apply when you use lexconv.com or buy a LexConv product such as ColdChain OS, for customers in the UK, India and elsewhere.",
+    "The terms that apply when you use lexconv.com or buy a LexConv product such as ColdChain OS, for customers in India and other countries.",
   path: "/terms",
 });
 
@@ -22,9 +22,8 @@ export default function TermsPage() {
       <p>&ldquo;LexConv&rdquo;, &ldquo;we&rdquo; and &ldquo;us&rdquo; mean:</p>
       <Entities />
       <p>
-        If your business is in India and you pay in rupees, your contract is with LexConv India. In
-        every other case, your contract is with LexConv UK. You can contact us at{" "}
-        <a href={`mailto:${company.email}`}>{company.email}</a>.
+        Your contract is with LexConv, whether you are in India or in another country. You can
+        contact us at <a href={`mailto:${company.email}`}>{company.email}</a>.
       </p>
 
       <h2>2. Who these terms are for</h2>
@@ -162,18 +161,14 @@ export default function TermsPage() {
 
       <h2>15. Law and disputes</h2>
       <p>
-        Please contact us first. Most problems can be solved by e-mail. If we cannot solve it:
+        Please contact us first. Most problems can be solved by e-mail.
       </p>
-      <ul>
-        <li>
-          contracts with LexConv UK are governed by the laws of England and Wales, and the courts of
-          England and Wales will hear any dispute;
-        </li>
-        <li>
-          contracts with LexConv India are governed by the laws of India, and the courts in{" "}
-          {show(company.india.jurisdiction)} will hear any dispute.
-        </li>
-      </ul>
+      <p>
+        These terms are governed by the laws of India, and the courts with jurisdiction over our
+        business address in India will hear any dispute. If you are a customer outside India, this
+        does not take away any protection you have under the laws of your own country that cannot be
+        excluded by contract.
+      </p>
 
       <h2>16. Contact</h2>
       <p>

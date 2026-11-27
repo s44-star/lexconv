@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "About us",
   description:
-    "LexConv is a venture studio founded by Subham Praharaj. We build and run software and hardware businesses, through a UK company and an Indian sole proprietorship.",
+    "LexConv is a venture studio founded by Subham Praharaj. We build and run software and hardware businesses for customers in India, the UK, the EU and beyond.",
   path: "/about",
 });
 
@@ -69,58 +69,40 @@ export default function AboutPage() {
 
       <section aria-labelledby="entities-heading" className="container-page mt-20">
         <h2 id="entities-heading" className="text-[1.75rem] font-semibold">
-          Our companies
+          Our business
         </h2>
         <p className="mt-3 max-w-[60ch] text-muted">
-          LexConv operates through two entities. Which one you deal with depends on where your
-          business is.
+          LexConv is {company.legalForm}. We serve customers in India in rupees, and customers in
+          other countries in US dollars.
         </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <article className="rounded-lg border border-line bg-surface p-6 sm:p-8">
-            <h3 className="text-xl font-semibold">United Kingdom</h3>
-            <p className="mt-2 text-muted">For customers outside India. Prices in US dollars.</p>
-            <dl className="mt-5 space-y-3 text-[0.9375rem]">
-              <div>
-                <dt className="text-muted">Company name</dt>
-                <dd className="font-medium">{show(company.uk.legalName)}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Registered in</dt>
-                <dd className="font-medium">{show(company.uk.registeredIn)}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Company number</dt>
-                <dd className="font-medium tabular-nums">{show(company.uk.companyNumber)}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Registered office</dt>
-                <dd className="font-medium">{show(company.uk.registeredOffice)}</dd>
-              </div>
-            </dl>
-          </article>
-          <article className="rounded-lg border border-line bg-surface p-6 sm:p-8">
-            <h3 className="text-xl font-semibold">India</h3>
-            <p className="mt-2 text-muted">For customers in India. Prices in rupees.</p>
-            <dl className="mt-5 space-y-3 text-[0.9375rem]">
-              <div>
-                <dt className="text-muted">Trade name</dt>
-                <dd className="font-medium">{show(company.india.tradeName)}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Type</dt>
-                <dd className="font-medium">Sole proprietorship</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Proprietor</dt>
-                <dd className="font-medium">{company.india.proprietor}</dd>
-              </div>
-              <div>
-                <dt className="text-muted">Address</dt>
-                <dd className="font-medium">{show(company.india.address)}</dd>
-              </div>
-            </dl>
-          </article>
-        </div>
+        <article className="mt-8 max-w-xl rounded-lg border border-line bg-surface p-6 sm:p-8">
+          <dl className="space-y-3 text-[0.9375rem]">
+            <div>
+              <dt className="text-muted">Trade name</dt>
+              <dd className="font-medium">{company.tradeName}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Type</dt>
+              <dd className="font-medium">Sole proprietorship, registered in India</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Proprietor</dt>
+              <dd className="font-medium">{company.proprietor}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Address</dt>
+              <dd className="font-medium">{show(company.address)}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">E-mail</dt>
+              <dd className="font-medium">
+                <a className="link" href={`mailto:${company.email}`}>
+                  {company.email}
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </article>
       </section>
     </>
   );

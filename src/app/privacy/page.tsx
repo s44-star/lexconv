@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Privacy policy",
   description:
-    "How LexConv collects, uses and protects personal data, under UK data protection law and India's Digital Personal Data Protection Act.",
+    "How LexConv collects, uses and protects personal data, under India's Digital Personal Data Protection Act, and the UK and EU GDPR where they apply.",
   path: "/privacy",
 });
 
@@ -21,9 +21,10 @@ export default function PrivacyPage() {
       <p>Your personal data is handled by:</p>
       <Entities />
       <p>
-        If you are in India, LexConv India is responsible for your data (the &ldquo;data
-        fiduciary&rdquo;). Otherwise LexConv UK is responsible (the &ldquo;controller&rdquo;). For
-        any privacy question, e-mail <a href={`mailto:${company.email}`}>{company.email}</a>.
+        LexConv decides how your personal data is used. Under Indian law that makes us the
+        &ldquo;data fiduciary&rdquo;. Under the UK and EU GDPR, which can apply when we serve people
+        in the UK or EU, it makes us the &ldquo;controller&rdquo;. For any privacy question, e-mail{" "}
+        <a href={`mailto:${company.email}`}>{company.email}</a>.
       </p>
 
       <h2>2. What we collect</h2>
@@ -54,8 +55,9 @@ export default function PrivacyPage() {
       <h2>3. Why we use it, and our legal basis</h2>
       <ul>
         <li>
-          <strong>To reply to you</strong> when you contact us. In the UK our basis is our legitimate
-          interest in answering enquiries. In India it is the consent you give by sending the message.
+          <strong>To reply to you</strong> when you contact us. In India our basis is the consent you give
+          by sending the message. Under the UK and EU GDPR it is our legitimate interest in answering
+          enquiries.
         </li>
         <li>
           <strong>To provide the product you signed up for</strong>, including support. Our basis is
@@ -102,9 +104,9 @@ export default function PrivacyPage() {
       <h2>5. International transfers</h2>
       <p>
         Our providers may store or process data outside your country, for example in the European
-        Union, the United Kingdom, the United States or India. When personal data leaves the UK, we
-        rely on legal safeguards such as adequacy decisions or standard contractual clauses. We only
-        transfer data from India where Indian law allows it.
+        Union, the United Kingdom, the United States or India. We only transfer data where Indian law
+        allows it. For people in the UK or EU, we rely on legal safeguards such as adequacy decisions
+        or standard contractual clauses offered by our providers.
       </p>
 
       <h2>6. How long we keep it</h2>
@@ -137,9 +139,10 @@ export default function PrivacyPage() {
       </ul>
       <p>
         E-mail <a href={`mailto:${company.email}`}>{company.email}</a>. We will reply within one month.
-        If you are not happy with our answer, you can complain to the Information Commissioner&apos;s
-        Office in the UK (<a href="https://ico.org.uk">ico.org.uk</a>) or, in India, to the Data
-        Protection Board of India.
+        If you are not happy with our answer, you can complain to the Data Protection Board of India.
+        In the UK you can complain to the Information Commissioner&apos;s Office (
+        <a href="https://ico.org.uk">ico.org.uk</a>), and in the EU to your national data protection
+        authority.
       </p>
 
       <h2>9. Children</h2>
